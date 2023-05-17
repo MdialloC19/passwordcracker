@@ -1,3 +1,5 @@
+
+// Cette classe permet de tester tout le code 
 public class PassWordCracker {
     
     public static void main(String []args){
