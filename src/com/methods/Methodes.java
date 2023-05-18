@@ -3,6 +3,6 @@ package com.methods;
 public abstract class Methodes {
     
 
-    public abstract String casserMotDePasse(String motDePasse);
+    public abstract void casserMotDePasse(String motDePasse);
     
 }

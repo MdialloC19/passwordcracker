@@ -30,7 +30,7 @@ public class HachageMd5 {
         String hexHash = hexBuilder.toString();
         
         // Affichage du hachage
-        System.out.println("Hachage MD5 : " + hexHash);
+        //System.out.println("Hachage MD5 : " + hexHash);
         
         return hexHash;
         

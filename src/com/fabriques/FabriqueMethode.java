@@ -5,10 +5,12 @@ import com.methods.*;
 
 public class FabriqueMethode {
 
-    Methodes MethodPourMot=null;
+    
     //Dans ce bout de code nous choisir quelle instance choisir pour trouver le code
-    public Methodes getInstance(String method){
+    public static Methodes getInstance(String method){
 
+        Methodes MethodPourMot=null;
+        
         if(method.equalsIgnoreCase("bruteforce")){
 
             MethodPourMot= new BruteForce();
