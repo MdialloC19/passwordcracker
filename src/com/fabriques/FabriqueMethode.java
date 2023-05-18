@@ -16,6 +16,7 @@ public class FabriqueMethode {
         }else if(method.equalsIgnoreCase("dictionnaire")){
 
             MethodPourMot= new Dictionnaire();
+            
         } else {
             throw new IllegalArgumentException("Type de méthode invalide.");
         }

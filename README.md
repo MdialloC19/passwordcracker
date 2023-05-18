@@ -13,10 +13,13 @@ Sur ce veuillez prendre le temps de lire les lignes directrices suivantes :
     Soumettez une demande de fusion pour que vos modifications soient examinées et fusionnées dans la branche principale
     La branche principale doit être stable à tout moment, vous ne pouvez pas le modifier sans concertation. Veuillez ouvrir une nouvelle branche pour les nouvelles fonctionnalités et corriger les bogues.
 
+# documentation_à_lire
+https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html : pour la fonction md5
+
 # organisation_du_code
-- Les dossiers src et bin sont crées à la racine de ton projet, src contient les fcihiers .java et les .class sont dans bin.
-- Pour l'organisation interne au sein des fichiers dans src, nous les avons rassembler en packages : les com.methods contient les classes relatives aux méthodes pour casser le code (Methodes.java, Dictionnaire.java et BruteForce.java). Le package com.fabriques contient la classe FabriqueMethode.java
-- sur linux tu peux la commande tree pour bien voir l'arborescence
+- Les dossiers src et bin sont crées à la racine du projet, src contient les fcihiers .java et les .class sont dans bin.
+- Pour l'organisation interne au sein des fichiers dans src, nous les avons rassembler en packages : le com.methods contient les classes relatives aux méthodes pour casser le code (Methodes.java, Dictionnaire.java et BruteForce.java). Le package com.fabriques contient la classe FabriqueMethode.java
+- sur linux tu peux taper la commande tree pour bien voir l'arborescence
 
 # Compilation
 - Assure-toi d'être dans le répertoire racine du projet, puis exécute la commande suivante depuis la ligne de commande :
@@ -24,4 +27,4 @@ Sur ce veuillez prendre le temps de lire les lignes directrices suivantes :
  - javac -d bin src/com/fabriques/*.java
  - java -cp bin src.PassWordCracker.java
 
-NB: PassWordCraker.java est mon fichier principale.
+NB: PassWordCraker.java est le fichier principale.
