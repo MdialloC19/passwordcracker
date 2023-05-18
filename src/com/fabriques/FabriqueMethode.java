@@ -2,7 +2,6 @@
 package com.fabriques;
 import com.methods.*;
 
-
 public class FabriqueMethode {
 
     Methodes MethodPourMot=null;
