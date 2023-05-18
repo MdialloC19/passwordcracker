@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class HachageMd5 {
 
-    public static String hachage(String algo, String mdp) throws NoSuchAlgorithmException {
+    public String hachage(String algo, String mdp) throws NoSuchAlgorithmException {
        
         
         // Encodage de la chaîne en MD5
