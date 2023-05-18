@@ -5,15 +5,12 @@ import java.util.Scanner;
 
 public class HachageMd5 {
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
-        System.out.println("Veuillez saisir la chaîne à encoder en MD5");
-        Scanner sc = new Scanner(System.in);
-        String s = sc.next();
-        sc.close();
+    public String hachage(String algo, String mdp) throws NoSuchAlgorithmException {
+       
         
         // Encodage de la chaîne en MD5
         MessageDigest md = MessageDigest.getInstance("MD5");
-        md.update(s.getBytes()); 
+        md.update(mdp.getBytes()); 
         byte[] digest = md.digest();
         
         // Conversion du hachage en une chaîne hexadécimale
@@ -34,5 +31,8 @@ public class HachageMd5 {
         
         // Affichage du hachage
         System.out.println("Hachage MD5 : " + hexHash);
+        
+        return hexHash;
+        
     }
 }
