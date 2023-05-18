@@ -16,13 +16,15 @@ Sur ce veuillez prendre le temps de lire les lignes directrices suivantes :
 # documentation_à_lire
 https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html : pour la fonction md5
 
+https://www.md5hashgenerator.com/ : pour générer des hash en md5
+
 # organisation_du_code
 - Les dossiers src et bin sont crées à la racine du projet, src contient les fcihiers .java et les .class sont dans bin.
 - Pour l'organisation interne au sein des fichiers dans src, nous les avons rassembler en packages : le com.methods contient les classes relatives aux méthodes pour casser le code (Methodes.java, Dictionnaire.java et BruteForce.java). Le package com.fabriques contient la classe FabriqueMethode.java
 - sur linux tu peux taper la commande tree pour bien voir l'arborescence
 
 # Compilation
-- Assure-toi d'être dans le répertoire racine du projet, puis exécute la commande suivante depuis la ligne de commande :
+- Assure-toi d'être dans à la racine du projet, puis exécute la commande suivante depuis la ligne de commande :
  - javac -d bin src/com/methods/*.java
  - javac -d bin src/com/fabriques/*.java
  - java -cp bin src.PassWordCracker.java
