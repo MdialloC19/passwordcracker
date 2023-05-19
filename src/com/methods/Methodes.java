@@ -1,4 +1,3 @@
-
 package com.methods; 
 public abstract class Methodes {
     

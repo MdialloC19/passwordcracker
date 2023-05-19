@@ -15,7 +15,7 @@ public class Dictionnaire  extends Methodes{
         List<String> dictionary = new ArrayList<>();
 
         // on ouvre le fichier en especifiant son path et ensuite le lire ligne par ligne grace à la classe BufferedReader
-        // Il faut noter sur linux les sépérateur des chemins c'est "./" et sur windows "../" donc tu peux le moficier sur ton programm
+        // Il faut noter sur linux les sépérateur des chemins c'est "./" et sur windows "../" donc tu peux le moficier sur ton programme
         try(BufferedReader reader = new BufferedReader(new FileReader(new File("./././dictionary/passwords.txt")))) {
             String ligne;
             // Chaque ligne lue est ajoutée à la liste dictionary
@@ -44,4 +44,15 @@ public class Dictionnaire  extends Methodes{
         System.out.println("Mot de passe non trouvé");
     }
     
+    public static boolean verification(String mdp,String password){
+        HachageMd5 hash=new HachageMd5();
+        String actuMdp="";
+        try {
+            actuMdp = hash.hachage("MD5",password);
+        } catch (NoSuchAlgorithmException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return mdp.equals(actuMdp);
+    }
 }
