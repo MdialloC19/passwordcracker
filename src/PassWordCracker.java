@@ -3,7 +3,6 @@
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
-
 import com.fabriques.FabriqueMethode;
 import com.hachages.*;
 import com.methods.*;

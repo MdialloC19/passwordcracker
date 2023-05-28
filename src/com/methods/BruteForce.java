@@ -33,6 +33,7 @@ public class BruteForce extends Methodes{
                     index++;
                 }
             }
+            System.out.println(new String(motDePasse));              
         }
 
     }
