@@ -1,8 +1,8 @@
 package com.methods;
 
+import com.hachages.HachageMd5;
 import java.security.NoSuchAlgorithmException;
 
-import com.hachages.HachageMd5;
 
 // passer :e7247759c1633c0f9f1485f3690294a9
 //aaaaaa: 0b4e7a0e5fe84ad35fb5f95b9ceeac79
@@ -18,6 +18,7 @@ public class BruteForce extends Methodes{
         char motDePasse[]={'a','a','a', 'a','a'};
 
         int motDePasseLength=motDePasse.length;
+        long debut=System.currentTimeMillis();
         while (motDePasse[motDePasseLength - 1] <='z') {
             
             if(verification(mdp,new String(motDePasse))){
@@ -38,6 +39,8 @@ public class BruteForce extends Methodes{
                 }
             }
         }
+        long fin=System.currentTimeMillis();
+        System.out.println("La recherche a durée :"+ (fin-debut)/1000+"s");
 
     }
 
