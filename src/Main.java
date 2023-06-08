@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        String password = "passer";
+        String password = "passe";
 
         char[] chaine = new char[password.length()];
         

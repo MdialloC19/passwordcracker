@@ -19,6 +19,7 @@ public class BruteForce extends Methodes{
 
         int motDePasseLength=motDePasse.length;
         long debut=System.currentTimeMillis();
+        System.out.println("crackage brute force ....");
         while (motDePasse[motDePasseLength - 1] <='z') {
             
             if(verification(mdp,new String(motDePasse))){
@@ -46,14 +47,15 @@ public class BruteForce extends Methodes{
 
     public static boolean verification(String mdp,String password){
         System.out.println(password);
-        HachageMd5 hash=new HachageMd5();
-        String actuMdp="";
-        try {
-            actuMdp = hash.hachage("MD5",password);
-        } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        // HachageMd5 hash=new HachageMd5();
+        // String actuMdp="";
+        // try {
+        //     actuMdp = hash.hachage("MD5",password);
+        // } catch (NoSuchAlgorithmException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
+        String   actuMdp=password;
         return mdp.equals(actuMdp);
     }
     

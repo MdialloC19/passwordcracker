@@ -15,7 +15,7 @@ public class Dictionnaire  extends Methodes{
         List<String> dictionary = new ArrayList<>();
 
         // on ouvre le fichier en especifiant son path et ensuite le lire ligne par ligne grace à la classe BufferedReader
-        // Il faut noter sur linux les sépérateur des chemins c'est "./" et sur windows "../" donc tu peux le moficier sur ton programme
+        // Il faut noter sur linux les sépérateur des chemins c'est "./" et sur windows "../" donc tu peux le modifier sur ton programme
         try(BufferedReader reader = new BufferedReader(new FileReader(new File("./././dictionary/passwords.txt")))) {
             String ligne;
             // Chaque ligne lue est ajoutée à la liste dictionary
@@ -43,7 +43,7 @@ public class Dictionnaire  extends Methodes{
         }
         System.out.println("Mot de passe non trouvé");
     }
-    
+    //cette function permet de faire la vérification du mot avec le hash
     public static boolean verification(String mdp,String password){
         HachageMd5 hash=new HachageMd5();
         String actuMdp="";

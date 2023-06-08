@@ -25,7 +25,5 @@ public class FabriqueMethode {
     return MethodPourMot;
 }
 
-// else if(method.equalsIgnoreCase("haching")){
-//     MethodPourMot= new HachageMd5();
-// }else {
+
 }
