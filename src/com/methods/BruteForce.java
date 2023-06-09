@@ -1,9 +1,13 @@
 package com.methods;
 
+import com.hachages.HachageMd5;
 import java.security.NoSuchAlgorithmException;
 
-import com.hachages.HachageMd5;
 
+// passer :e7247759c1633c0f9f1485f3690294a9
+//aaaaaa: 0b4e7a0e5fe84ad35fb5f95b9ceeac79
+// passe: b89f7a5ff3e3a225d572dac38b2a67f7
+// passa: bec341ed1505df4197f2b66fcff3946a
 public class BruteForce extends Methodes{
 
     //int     [] chiffre={0,1,2,3,4,5,6,7,8,9};
@@ -14,6 +18,8 @@ public class BruteForce extends Methodes{
         char motDePasse[]={'a','a','a', 'a','a'};
 
         int motDePasseLength=motDePasse.length;
+        long debut=System.currentTimeMillis();
+        System.out.println("crackage brute force ....");
         while (motDePasse[motDePasseLength - 1] <='z') {
             
             if(verification(mdp,new String(motDePasse))){
@@ -27,7 +33,7 @@ public class BruteForce extends Methodes{
             while (index < motDePasseLength) {
                 if (motDePasse[index] < 'z') {
                     motDePasse[index]++;
-                    break;
+                   break;
                 } else {
                     motDePasse[index] = 'a';
                     index++;
@@ -35,18 +41,22 @@ public class BruteForce extends Methodes{
             }
             System.out.println(new String(motDePasse));              
         }
+        long fin=System.currentTimeMillis();
+        System.out.println("La recherche a durée :"+ (fin-debut)/1000+"s");
 
     }
 
     public static boolean verification(String mdp,String password){
-        HachageMd5 hash=new HachageMd5();
-        String actuMdp="";
-        try {
-            actuMdp = hash.hachage("MD5",password);
-        } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        System.out.println(password);
+        // HachageMd5 hash=new HachageMd5();
+        // String actuMdp="";
+        // try {
+        //     actuMdp = hash.hachage("MD5",password);
+        // } catch (NoSuchAlgorithmException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
+        String   actuMdp=password;
         return mdp.equals(actuMdp);
     }
     

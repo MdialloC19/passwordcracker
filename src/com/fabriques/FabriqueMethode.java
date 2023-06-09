@@ -1,5 +1,6 @@
 // Tous les fabrques je les rassembles dans le package com.fabriques
 package com.fabriques;
+import com.hachages.HachageMd5;
 import com.methods.*;
 
 public class FabriqueMethode {
@@ -18,10 +19,11 @@ public class FabriqueMethode {
 
             MethodPourMot= new Dictionnaire();
             
-        } else {
-            throw new IllegalArgumentException("Type de méthode invalide.");
-        }
-        return MethodPourMot;
+        } else{
+        throw new IllegalArgumentException("Type de méthode invalide.");
     }
-    
+    return MethodPourMot;
+}
+
+
 }

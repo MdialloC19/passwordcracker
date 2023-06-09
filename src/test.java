@@ -9,9 +9,9 @@ public class test {
         Scanner sc=new Scanner(System.in);
 
         String mdp=sc.nextLine();
-        int passwordLength = 3; 
+        int passwordLength = 5; 
         //char[] password = new char[passwordLength];
-        char password[]={'a','a','a'};
+        char password[]={'a','a','a','a','a'};
 
         while (password[passwordLength - 1] < 'z') {
             // Afficher le mot de passe actuel
