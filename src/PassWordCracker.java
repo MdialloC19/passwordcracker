@@ -9,20 +9,44 @@ import com.methods.*;
 public class PassWordCracker {
     
     public static void main(String []args){
-        System.out.println("****** Programme pour casser un code de 5 à 6 chiffres par deux méthodes- Hachage de Mot de passe ********\n\t\t 1- Méthode par BRUTE FORCE ( taper bruteforce)\n\t\t 2- Méthode par DICTIONNAIRE (dictionnaire)");
+        System.out.println("****** Programme pour casser un code de 5 à 6 chiffres par deux méthodes ********\n\t\t"+
+        "1- Méthode par BRUTE FORCE \n\t\t"+" 2- Méthode par DICTIONNAIRE");
         
         Scanner sc=new Scanner(System.in);
-        String mtd1=sc.nextLine();
-
-        Methodes Method=FabriqueMethode.getInstance(mtd1);
-        System.out.println("Donner le mot de passe hacher à rechercher");
+        int choix=sc.nextInt();
+        String mdp1=new String();
+        switch (choix) {
+            case 1:
+            mdp1="bruteforce";
+                break;
+            case 2:
+            mdp1="dictionnaire";
+                break;
+            default:
+            System.out.println("Choix indisponible");
+                break;
+        }
+        Methodes Method=FabriqueMethode.getInstance(mdp1);
         
-        String mdp=sc.nextLine();
+        System.out.println("1-Trouver un mot de passe \n2-Trouver le mot de passe d'authentification");
+        int choix1=sc.nextInt();
+
+        if(choix==1){
+            System.out.println("Donner le mot de passe hacher à rechercher");
+            String mdp=sc.nextLine();
+            Method.casserMotDePasse(mdp);
+
+        }else{
+            
+
+        }
+        
 
         System.out.println("Veuillez patienter SVP");
 
-        Method.casserMotDePasse(mdp);
+      
 
     
-    }   
+    }
+  
 }
