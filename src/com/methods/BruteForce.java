@@ -39,6 +39,7 @@ public class BruteForce extends Methodes{
                     index++;
                 }
             }
+            System.out.println(new String(motDePasse));              
         }
         long fin=System.currentTimeMillis();
         System.out.println("La recherche a durée :"+ (fin-debut)/1000+"s");
