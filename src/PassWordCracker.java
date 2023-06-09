@@ -9,7 +9,7 @@ import com.methods.*;
 public class PassWordCracker {
     
     public static void main(String []args){
-        System.out.println("****** Programme pour casser un code de 5 à 6 chiffres par deux méthodes ********\n\t\t"+
+        System.out.println("****** Programme pour casser un code de 5 à 6 chiffres par deux méthodes- Hachage de Mot de passe ********\n\t\t"+
         "1- Méthode par BRUTE FORCE \n\t\t"+" 2- Méthode par DICTIONNAIRE");
         
         Scanner sc=new Scanner(System.in);
