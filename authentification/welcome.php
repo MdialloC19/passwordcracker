@@ -22,8 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user && (md5($password) == $user['password'])) {
             echo "Bienvenue, " . $username . " !";
+            http_response_code($response_code=202);
         } else {
             echo "Identifiant ou mot de passe incorrect.";
+            http_response_code($response_code=400);
         }
     } catch(PDOException $e) {
         echo "Erreur de connexion à la base de données : " . $e->getMessage();
