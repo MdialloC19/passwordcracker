@@ -97,4 +97,29 @@ public class BruteForce extends Methodes {
         return mdp.equals(actuMdp);
     }
 
+    public static String recursifBruteForce(String password, char[] chaine, int position){
+        if(position == password.length()-1){
+            for (int i = 97; i < 127; i++) {
+                chaine[position] = (char)i;
+               //System.out.println(new String(chaine));
+                String combinaison = new String(chaine);
+                if(password.equals(combinaison)){
+                    // mot de passe trouve
+                    System.out.println("mot de passe trouvé");
+                    return combinaison;
+                }
+            }
+            return null;
+        }else{
+            for (int i = 97; i < 123; i++) {
+                chaine[position] = (char)i;
+                if(recursifBruteForce(password, chaine, position+1)!= null){
+                    return chaine.toString();
+                }
+            }
+        }
+        return null;
+
+    }
+
 }
