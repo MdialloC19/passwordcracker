@@ -7,54 +7,59 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URLEncoder;
 
+/**
+ * Cette classe représente un client socket pour envoyer une requête HTTP.
+ */
 public class SocketServer {
 
-        public static String casserRequest(String host, int port, String path, String username, String password) throws IOException{
+    /**
+     * Envoie une requête HTTP POST au serveur spécifié et récupère la réponse.
+     *
+     * @param host     L'hôte du serveur.
+     * @param port     Le port du serveur.
+     * @param path     Le chemin de la requête.
+     * @param username Le nom d'utilisateur.
+     * @param password Le mot de passe.
+     * @return La réponse du serveur.
+     * @throws IOException Si une erreur d'entrée/sortie se produit lors de la communication avec le serveur.
+     */
+    public static String casserRequest(String host, int port, String path, String username, String password) throws IOException {
 
-                //WSWG
-                // String host="localhost";
-                // int port=80;
-                // String path="/authentification/logi.php";
-                // String username="moussa";
-                
+        // Les paramètres du corps de la requête
+        String params = "username=" + URLEncoder.encode(username, "UTF-8") +
+                        "&password=" + URLEncoder.encode(password, "UTF-8");
 
-                //Les paramètres corps de la requête,
-                String params="username="+URLEncoder.encode(username,"UTF-8")+
-                              "&password="+URLEncoder.encode(password, "UTF-8");
+        // Ouvrir une connexion avec le serveur
+        Socket clientSocket = new Socket(host, port);
 
-                //ouvrir une connexion  avec le servir 
-                Socket clientSocket=new Socket(host, port);
+        // La requête HTTP à envoyer
+        String requete = "POST " + path + " HTTP/1.1" + "\r\n" + // méthode + chemin + protocole + saut de ligne
+                         "Host: " + host + "\r\n" +   // adresse du serveur
+                         "Connection: close\r\n" +    // type de connexion : close ou keep-alive
+                         "Content-Type: application/x-www-form-urlencoded" + "\r\n" +  // type de contenu
+                         "Content-Length: " + params.length() + "\r\n" + "\r\n" +    // longueur du corps de la requête
+                         params;
 
-                //Le requetes http à envoyer
+        // Envoie de la requête dans le flux de sortie pour l'envoyer au serveur
+        OutputStream outputStream = clientSocket.getOutputStream();
+        outputStream.write(requete.getBytes());
+        outputStream.flush();
 
-                String requete= "POST "+path+" HTTP/1.1"+"\r\n"+// method +chemein+protocol+"\r\n"
-                                "Host: "+host+"\r\n"+   //address
-                                "Connection: close\r\n"+// type de connection close ou kep-alive
-                                "Content-Type: application/x-www-form-urlencoded"+"\r\n"+// type de contenu 
-                                "Content-Length: "+params.length()+"\r\n"+"\r\n"+
-                                params;
-                
-                // Envoie de la requete dans le flux de sortie pour l'envoyer au serveur.
-                OutputStream outputStream=clientSocket.getOutputStream();
-                outputStream.write(requete.getBytes());
-                outputStream.flush();
+        InputStreamReader isr = new InputStreamReader(clientSocket.getInputStream());
+        BufferedReader reader = new BufferedReader(isr);
 
-                InputStreamReader isr=new InputStreamReader(clientSocket.getInputStream());
-                BufferedReader reader=new BufferedReader(isr);
-
-                // Lire la réponse du serveur
-                String line;
-                StringBuilder response=new StringBuilder();
-                while((line=reader.readLine())!=null){
-                    response.append(line).append("\n");
-                }
-                System.out.println(response.toString());
-
-                reader.close();
-                outputStream.close();
-                clientSocket.close();
-                return response.toString();
+        // Lire la réponse du serveur
+        String line;
+        StringBuilder response = new StringBuilder();
+        while ((line = reader.readLine()) != null) {
+            response.append(line).append("\n");
         }
+        System.out.println(response.toString());
 
-    
+        reader.close();
+        outputStream.close();
+        clientSocket.close();
+
+        return response.toString();
+    }
 }
