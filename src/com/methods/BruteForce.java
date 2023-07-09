@@ -1,16 +1,18 @@
 package com.methods;
 
-import com.hachages.HachageMd5;
 import com.socket.*;
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 
-// passer :e7247759c1633c0f9f1485f3690294a9
-//aaaaaa: 0b4e7a0e5fe84ad35fb5f95b9ceeac79
-// passe: b89f7a5ff3e3a225d572dac38b2a67f7
-// passa: bec341ed1505df4197f2b66fcff3946a
+/**
+ * Cette classe représente une méthode de brute force pour casser un mot de passe.
+ */
 public class BruteForce extends Methodes {
 
+    /**
+     * Casse le mot de passe en utilisant la méthode brute force.
+     *
+     * @param mdp Le mot de passe à casser.
+     */
     public void casserMotDePasse(String mdp) {
 
         char motDePasse[] = { 'a', 'a', 'a', 'a', 'a' };
@@ -44,6 +46,14 @@ public class BruteForce extends Methodes {
 
     }
 
+    /**
+     * Casse le mot de passe en utilisant la méthode brute force avec des paramètres de connexion.
+     *
+     * @param host     L'hôte du serveur.
+     * @param port     Le port du serveur.
+     * @param path     Le chemin de la requête.
+     * @param username Le nom d'utilisateur.
+     */
     public void casserMotDePasse(String host, int port, String path, String username) {
         char[] motDePasse = { 'a', 'a', 'a', 'a', 'a' };
         int motDePasseLength = motDePasse.length;
@@ -83,6 +93,13 @@ public class BruteForce extends Methodes {
         System.out.println("La recherche a duré : " + (fin - debut) / 1000 + " secondes");
     }
 
+    /**
+     * Vérifie si le mot de passe donné correspond au mot de passe actuel.
+     *
+     * @param mdp      Le mot de passe actuel.
+     * @param password Le mot de passe à vérifier.
+     * @return true si le mot de passe correspond, sinon false.
+     */
     public static boolean verification(String mdp, String password) {
         System.out.println(password);
         // HachageMd5 hash=new HachageMd5();
@@ -97,6 +114,14 @@ public class BruteForce extends Methodes {
         return mdp.equals(actuMdp);
     }
 
+    /**
+     * Effectue une recherche récursive de brute force pour trouver le mot de passe.
+     *
+     * @param password  Le mot de passe à trouver.
+     * @param chaine    La chaîne de caractères en cours de construction.
+     * @param position  La position actuelle dans la chaîne de caractères.
+     * @return Le mot de passe trouvé, ou null s'il n'est pas trouvé.
+     */
     public static String recursifBruteForce(String password, char[] chaine, int position){
         if(position == password.length()-1){
             for (int i = 97; i < 127; i++) {
@@ -104,7 +129,7 @@ public class BruteForce extends Methodes {
                //System.out.println(new String(chaine));
                 String combinaison = new String(chaine);
                 if(password.equals(combinaison)){
-                    // mot de passe trouve
+                    // mot de passe trouvé
                     System.out.println("mot de passe trouvé");
                     return combinaison;
                 }
@@ -119,7 +144,5 @@ public class BruteForce extends Methodes {
             }
         }
         return null;
-
     }
-
 }
