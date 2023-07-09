@@ -22,6 +22,9 @@ public class PassWordCracker {
             case 2:
             mdp1="dictionnaire";
                 break;
+            case 3:
+            mdp1="htpp";
+                break;
             default:
             System.out.println("Choix indisponible");
                 break;
@@ -30,13 +33,23 @@ public class PassWordCracker {
         
         System.out.println("1-Trouver un mot de passe \n2-Trouver le mot de passe d'authentification");
         int choix1=sc.nextInt();
-
-        if(choix==1){
+        if(choix1==1){
             System.out.println("Donner le mot de passe hacher à rechercher");
             String mdp=sc.nextLine();
             Method.casserMotDePasse(mdp);
 
         }else{
+            System.out.println("Donner le host");
+            String host=sc.next();
+            System.out.println("Donner le port");
+            int port=sc.nextInt();
+            System.out.println("Donner le path");
+            String path=sc.next();
+            System.out.println("Donner le username");
+            String user=sc.next();
+
+            Method.casserMotDePasse(host,port,path,user);
+
             
 
         }

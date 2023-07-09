@@ -9,14 +9,14 @@ import java.net.URLEncoder;
 
 public class SocketServer {
 
-        void TestRequest() throws IOException{
+        public static String casserRequest(String host, int port, String path, String username, String password) throws IOException{
 
                 //WSWG
-                String host="localhost";
-                int port=80;
-                String path="/authentification/logi.php";
-                String username="moussa";
-                String password="ababa";
+                // String host="localhost";
+                // int port=80;
+                // String path="/authentification/logi.php";
+                // String username="moussa";
+                
 
                 //Les paramètres corps de la requête,
                 String params="username="+URLEncoder.encode(username,"UTF-8")+
@@ -27,10 +27,10 @@ public class SocketServer {
 
                 //Le requetes http à envoyer
 
-                String requete= "POST "+path+" HTPP/1.1"+"\r\n"+
-                                "Host: "+host+"\r\n"+
-                                "Connection: close\r\n"+
-                                "Content-Type: application/x-www-form-urlencoded"+"\r\n"+
+                String requete= "POST "+path+" HTTP/1.1"+"\r\n"+// method +chemein+protocol+"\r\n"
+                                "Host: "+host+"\r\n"+   //address
+                                "Connection: close\r\n"+// type de connection close ou kep-alive
+                                "Content-Type: application/x-www-form-urlencoded"+"\r\n"+// type de contenu 
                                 "Content-Length: "+params.length()+"\r\n"+"\r\n"+
                                 params;
                 
@@ -53,6 +53,7 @@ public class SocketServer {
                 reader.close();
                 outputStream.close();
                 clientSocket.close();
+                return response.toString();
         }
 
     
