@@ -22,6 +22,8 @@ public class Dictionnaire extends Methodes {
      * @param motDePasse Le mot de passe à casser.
      */
     public void casserMotDePasse(String motDePasse) {
+        long debut = System.currentTimeMillis();
+        System.out.println("Crackage brute force ....");
         List<String> dictionary = new ArrayList<>();
 
         // on ouvre le fichier en spécifiant son path et ensuite on le lit ligne par ligne grâce à la classe BufferedReader
@@ -50,6 +52,8 @@ public class Dictionnaire extends Methodes {
             }
         }
         System.out.println("Mot de passe non trouvé");
+        long fin = System.currentTimeMillis();
+        System.out.println("La recherche a duré : " + (fin - debut) / 1000 + " secondes");
     }
 
     /**

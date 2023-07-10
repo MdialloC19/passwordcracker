@@ -10,7 +10,7 @@ public class PassWordCracker {
     
     public static void main(String []args){
         System.out.println("****** Programme pour casser un code de 5 à 6 chiffres par deux méthodes- Hachage de Mot de passe ********\n\t\t"+
-        "1- Méthode par BRUTE FORCE \n\t\t"+" 2- Méthode par DICTIONNAIRE");
+        "1- Méthode par BRUTE FORCE \n\t\t"+"2- Méthode par DICTIONNAIRE");
         
         Scanner sc=new Scanner(System.in);
         int choix=sc.nextInt();
@@ -35,7 +35,7 @@ public class PassWordCracker {
         int choix1=sc.nextInt();
         if(choix1==1){
             System.out.println("Donner le mot de passe hacher à rechercher");
-            String mdp=sc.nextLine();
+            String mdp=sc.next();
             Method.casserMotDePasse(mdp);
 
         }else{
@@ -55,7 +55,7 @@ public class PassWordCracker {
         }
         
 
-        System.out.println("Veuillez patienter SVP");
+        System.out.println("Merci à bientot");
 
       
 
